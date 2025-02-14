@@ -12,3 +12,8 @@ def all_projects(request):
     projects = Project.objects.all()
     # print(projects)
     return render(request, 'projects/all_projects.html', {'projects': projects})
+
+def project_detail(request, pk):
+    # query database
+    project = Project.objects.get(pk=pk)
+    return render(request, 'projects/project_detail.html', {'project': project})
